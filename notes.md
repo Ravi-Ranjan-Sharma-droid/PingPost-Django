@@ -1,4 +1,4 @@
-# Full stack twitte app - PingPost
+# Full stack tweet app - PingPost
 
 ## Goal
   + complete flow of making django project

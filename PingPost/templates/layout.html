@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+  <!-- Your Custom CSS -->
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+
+  <title>{% block title %}PingPost{% endblock %}</title>
+</head>
+
+<body class="bg-dark text-white">
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg bg-black text-white border-bottom border-secondary shadow-sm sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white fw-semibold fs-4" href="#">PingPost</a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link text-light" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="#">Explore</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="#">Profile</a></li>
+        </ul>
+
+        <!-- Search Form -->
+        <form class="d-flex align-items-center" role="search">
+          <input class="form-control search-input" type="search" placeholder="Search PingPost" aria-label="Search">
+          <button class="search-btn" type="submit">Go</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE CONTENT -->
+  <div class="container py-4">
+    {% block content %}{% endblock %}
+  </div>
+
+  <!-- Bootstrap JS Bundle (with Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

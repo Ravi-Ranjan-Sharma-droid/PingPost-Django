@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tweet',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'PingPost.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,8 +123,8 @@ MEDIA_URL = '/media/'
 # This is where uploaded files are saved on the server
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # URL prefix for serving static files (CSS, JS, etc.)
-# For example, your CSS might be accessed at /statics/styles.css
-STATIC_URL = 'statics/'
+# For example, your CSS might be accessed at /static/styles.css
+STATIC_URL = 'static/'
 # A list of directories where Django will look for static files (besides each app’s static/)
-# Useful when you store common static files (CSS, JS, images) in a global "statics" folder
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'statics')]
+# Useful when you store common static files (CSS, JS, images) in a global "static" folder
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
