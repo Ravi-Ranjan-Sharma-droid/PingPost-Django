@@ -1,1 +1,65 @@
-.vscode
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django migrations (optional, see notes below)
+**/migrations/*.pyc
+**/migrations/__pycache__/
+# Uncomment next line to ignore migration files (optional, usually keep them)
+# **/migrations/*.py
+
+# Environment
+.env
+.env.*
+*.env
+venv/
+ENV/
+env/
+Pipfile.lock
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Database (optional - if using SQLite in dev only)
+*.sqlite3
+
+# Static and media (generated content)
+staticfiles/
+media/
+static/
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# Testing
+.pytest_cache/
+unit_tests.log
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Docker
+*.pid
+docker-compose.override.yml
+
+# Others
+*.bak
+*.tmp
