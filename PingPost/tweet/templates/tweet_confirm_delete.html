@@ -1,12 +1,12 @@
-{% extends "layout.html" %}
-
-{% block title %}
-    PingPost
-{% endblock  %}
-
+{% extends "layout.html" %} 
+{% block title %} 
+PingPost 
+{% endblock %} 
 {% block content %}
-    <h1 class="text-center text-white mt-4">Welcome to PingPost</h1>
-    <p class="text-center">
-    We're still building something great. Stay tuned.
-    </p>
-{% endblock  %}
+<h1 class="text-center text-white mt-1">Welcome to PingPost</h1>
+<h2 class="text-center text-danger mt-4">Are you sure you want to delete this tweet?</h2>
+<form action="post">
+    <button class='btn btn-danger'>Delete</button>
+    <a class='btn btn-success' href="{% url 'tweet_list' %}">cancel</a>
+</form>
+{% endblock %}

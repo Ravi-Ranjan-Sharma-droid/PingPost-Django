@@ -2,11 +2,26 @@
 
 {% block title %}
     PingPost
-{% endblock  %}
+{% endblock %}
 
 {% block content %}
-    <h1 class="text-center text-white mt-4">Welcome to PingPost</h1>
-    <p class="text-center">
-    We're still building something great. Stay tuned.
-    </p>
-{% endblock  %}
+    <h1 class="text-center text-white mt-1">Welcome to PingPost</h1>
+    
+    <h2>
+        {% if form.instance.pk %}
+            Edit Tweet
+        {% else %}
+            Create Tweet
+        {% endif %}
+    </h2>
+
+    <form action="{% if form.instance.pk %}{% url 'tweet_edit' form.instance.pk %}{% else %}{% url 'tweet_create' %}{% endif %}" method="POST" enctype="multipart/form-data" class="form">
+        {% csrf_token %} 
+        {{ form.as_p }}
+        <button class="btn btn-warning" type="submit">
+            {% if form.instance.pk %}Update{% else %}Submit{% endif %}
+        </button>
+    </form>
+
+    <a href="{% url 'tweet_list' %}" class="btn btn-secondary mt-2">Back to tweets</a>
+{% endblock %}

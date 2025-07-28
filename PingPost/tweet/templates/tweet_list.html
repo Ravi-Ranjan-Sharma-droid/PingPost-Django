@@ -3,24 +3,24 @@
 {% block title %}PingPost{% endblock %}
 
 {% block content %}
-<h1 class="text-center text-white mt-4">Welcome to PingPost</h1>
+<h1 class="text-center text-white mt-1">Welcome to PingPost</h1>
 <a href="{% url 'tweet_create' %}" class="btn btn-primary mb-3">Create a Tweet</a>
 
 <div class="container row gap-3">
   {% for tweet in tweets %}
-  <div class="card col-md-3 p-0">
-    {% if tweet.photo %}
-    <img src="{{ tweet.photo.url }}" class="card-img-top" alt="Tweet photo" />
-    {% endif %}
-    <div class="card-body">
-      <h5 class="card-title">{{ tweet.user.username }}</h5>
-      <p class="card-text">{{ tweet.text }}</p>
-      <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-sm btn-primary">Edit</a>
-      <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-sm btn-danger">Delete</a>
+    <div class="card col-md-3 p-0">
+      {% if tweet.photo %}
+        <img src="{{ tweet.photo.url }}" class="card-img-top" alt="Tweet photo" />
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{ tweet.user.username }}</h5>
+        <p class="card-text">{{ tweet.text }}</p>
+        <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-sm btn-primary">Edit</a>
+        <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-sm btn-danger">Delete</a>
+      </div>
     </div>
-  </div>
   {% empty %}
-  <p class="text-white">No tweets available.</p>
+    <p class="text-white">No tweets available.</p>
   {% endfor %}
 </div>
 {% endblock %}
