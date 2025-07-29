@@ -4,7 +4,14 @@
 
 {% block content %}
 <h1 class="text-center text-white mt-1">Welcome to PingPost</h1>
-<a href="{% url 'tweet_create' %}" class="btn btn-primary mb-3">Create a Tweet</a>
+
+{% if is_authenticated %}
+  <a href="{% url 'tweet_create' %}" class="btn btn-primary mb-3">Create a Tweet</a>
+{% else %}
+  <div class="alert alert-info mb-3">
+    <a href="/admin/login/?next=/" class="alert-link">Login</a> to create and manage tweets.
+  </div>
+{% endif %}
 
 <div class="container row gap-3">
   {% for tweet in tweets %}
@@ -15,8 +22,10 @@
       <div class="card-body">
         <h5 class="card-title">{{ tweet.user.username }}</h5>
         <p class="card-text">{{ tweet.text }}</p>
-        <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-sm btn-primary">Edit</a>
-        <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-sm btn-danger">Delete</a>
+        {% if is_authenticated and tweet.user == user %}
+          <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-sm btn-primary">Edit</a>
+          <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-sm btn-danger">Delete</a>
+        {% endif %}
       </div>
     </div>
   {% empty %}
